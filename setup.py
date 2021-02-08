@@ -48,7 +48,7 @@ setup(
     ],
     packages=[package for package in find_packages()],
     package_data={
-        "pygeneses": [
+        "sockapp": [
             "static/css/styles.css",
             "static/js/main.js",
             "static/js/jquery.min.js",
