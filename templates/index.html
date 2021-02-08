@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>SockApp</title>
+
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    </head>
+
+    <body>
+        <div class="send">
+            <h1 class="header">Send</h2>
+            <p>
+                <input type="text" id="recv_ip" class="inp" placeholder="Receiver's IP">
+            </p>
+            <p>
+                <input type="text" id="send_path" class="inp" placeholder="Path to file (relative/absolute)"> 
+            </p>
+            <p>
+                <input type="button" id="send" class="button" value="Send">
+            </p>
+        </div>
+    </body>
+</html>
