@@ -1,3 +1,8 @@
 .DS_Store
 .vscode
 __pycache__
+build/
+dist/
+sockapp.egg-info/
+sockapp.egg-info/SOURCES.txt
+sockapp.egg-info/PKG-INFO

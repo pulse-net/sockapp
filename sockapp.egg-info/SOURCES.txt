@@ -11,3 +11,7 @@ sockapp.egg-info/dependency_links.txt
 sockapp.egg-info/entry_points.txt
 sockapp.egg-info/requires.txt
 sockapp.egg-info/top_level.txt
+sockapp/static/css/styles.css
+sockapp/static/js/jquery.min.js
+sockapp/static/js/main.js
+sockapp/templates/index.html
