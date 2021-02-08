@@ -1,0 +1,3 @@
+[console_scripts]
+sockapp = sockapp.run_app:run_app
+

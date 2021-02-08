@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: sockapp
+Version: 0.1a0
+Summary: Simple flask webapp for sending files over network using socket
+Home-page: https://github.com/frankhart2018/sockapp
+Author: Siddhartha Dhar Choudhury
+Author-email: sdharchou@gmail.com
+License: GNU General Public License v3
+Description: # SockApp
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown

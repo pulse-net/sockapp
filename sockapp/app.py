@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, jsonify
 
-from sender import send_file
-from receiver import receive_file
+from .sender import send_file
+from .receiver import receive_file
 
 # Instantiate flask app
 app = Flask(__name__)
