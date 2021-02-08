@@ -1,5 +1,7 @@
 # SockApp
 
+Simple flask web app to send files between two computers using socket.
+
 ## Steps to run
 
 1. Install sockapp using pip:-
