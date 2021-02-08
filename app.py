@@ -32,6 +32,6 @@ def send():
 def receive():
 
     if request.method == "POST":
-        receive()
+        receive_file()
 
         return jsonify({"status": "File received successfully!"})
