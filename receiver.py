@@ -13,7 +13,7 @@ SERVER_PORT = 5001
 BUFFER_SIZE = 4096
 SEPARATOR = "<SEPARATOR>"
 
-def receive():
+def receive_file():
     # Create the server socket
     # TCP socket
     s = socket.socket()
