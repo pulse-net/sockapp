@@ -9,7 +9,7 @@ import argparse
 SEPARATOR = "<SEPARATOR>"
 BUFFER_SIZE = 4096
 
-def send_file(filename, host, port):
+def send_file(filename, host, port=5001):
     # Get the file size
     filesize = os.path.getsize(filename)
 
