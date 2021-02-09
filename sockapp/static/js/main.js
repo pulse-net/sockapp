@@ -11,11 +11,19 @@ $(document).ready(function() {
                 dataType: "json",
                 data: {"recv_ip": recv_ip, "send_path": send_path},
                 success: function(result) {
-                    alert(result.status);
+                    Swal.fire({
+                        icon: "success",
+                        title: "Success",
+                        text: result.status,
+                    });
                 }
             });
         } else {
-            alert("Both receiver IP and file path are required!");
+            Swal.fire({
+                icon: "error",
+                title: "Error",
+                text: "Both receiver IP and file path are required!",
+            });
         }
     });
 
@@ -26,7 +34,11 @@ $(document).ready(function() {
             type: "post",
             dataType: "json",
             success: function(result) {
-                alert(result.status);
+                Swal.fire({
+                    icon: "success",
+                    title: "Success",
+                    text: result.status,
+                });
                 $("#receive").removeClass("selected-button");
             }
         });

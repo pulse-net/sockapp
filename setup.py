@@ -52,6 +52,7 @@ setup(
             "static/css/styles.css",
             "static/js/main.js",
             "static/js/jquery.min.js",
+            "static/js/sweetalert.min.js",
             "templates/index.html",
         ]
     },
