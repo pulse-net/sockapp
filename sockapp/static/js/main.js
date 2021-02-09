@@ -20,12 +20,14 @@ $(document).ready(function() {
     });
 
     $("#receive").click(function() {
+        $("#receive").addClass("selected-button");
         $.ajax({
             url: "/receive",
             type: "post",
             dataType: "json",
             success: function(result) {
                 alert(result.status);
+                $("#receive").removeClass("selected-button");
             }
         });
     });
