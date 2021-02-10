@@ -14,3 +14,4 @@
 ## 0.1-alpha-2
 
 - Show own hostname and IP address.
+- Add option to change port from command line while running sockapp server.

@@ -16,6 +16,12 @@ user@programmer~:$ pip install sockapp
 user@programmer~:$ sockapp
 ```
 
+2.1. To run sockapp from a different port, pass it as a command line argument:-
+
+```bash
+user@programmer~:$ sockapp --port 12345
+```
+
 3. From sender enter IP address of receiver and file path to be sent.
 
 4. From receiver accept the connection by pressing the receive button.
