@@ -32,7 +32,7 @@ def send():
         send_path = request.form['send_path']
 
         if not os.path.exists(send_path):
-            return jsonify({"icon": "error", "title": "Error", "text": f"Path {send_path} not found!"})
+            return jsonify({"icon": "error", "title": "Error", "status": f"Path {send_path} not found!"})
 
         send_file(filename=send_path, host=recv_ip)
 
