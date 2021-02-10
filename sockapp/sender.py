@@ -40,15 +40,3 @@ def send_file(filename, host, port=5001):
 
     # Close the socket
     s.close()
-
-if __name__ == "__main__":
-    import argparse
-    parser = argparse.ArgumentParser(description="Simple File Sender")
-    parser.add_argument("file", help="File name to send")
-    parser.add_argument("host", help="The host/IP address of the receiver")
-    parser.add_argument("-p", "--port", help="Port to use, default is 5001", default=5001)
-    args = parser.parse_args()
-    filename = args.file
-    host = args.host
-    port = args.port
-    send_file(filename, host, port)

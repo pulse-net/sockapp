@@ -7,25 +7,24 @@ import os
 
 # Device's IP address
 SERVER_HOST = "0.0.0.0"
-SERVER_PORT = 5001
 
 # Receive 4096 bytes each time
 BUFFER_SIZE = 4096
 SEPARATOR = "<SEPARATOR>"
 
-def receive_file():
+def receive_file(port=5001):
     # Create the server socket
     # TCP socket
     s = socket.socket()
 
     # Bind the socket to our local address
-    s.bind((SERVER_HOST, SERVER_PORT))
+    s.bind((SERVER_HOST, port))
 
     # Enabling our server to accept connections
     # 5 here is the number of unaccepted connections that
     # the system will allow before refusing new connections
     s.listen(5)
-    print(f"[*] Listening as {SERVER_HOST}:{SERVER_PORT}")
+    print(f"[*] Listening as {SERVER_HOST}:{port}")
 
     # Accept connection if there is any
     client_socket, address = s.accept() 
@@ -67,6 +66,3 @@ def receive_file():
 
     # Close the server socket
     s.close()
-
-if __name__ == "__main__":
-    receive()
