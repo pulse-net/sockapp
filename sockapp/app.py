@@ -1,4 +1,5 @@
 from flask import Flask, request, render_template, jsonify
+import socket
 
 from .sender import send_file
 from .receiver import receive_file
@@ -15,7 +16,10 @@ app.config["SESSION_TYPE"] = "filesystem"
 def index():
 
     if request.method == "GET":
-        return render_template("index.html")
+        hostname = socket.gethostname()
+        ip = socket.gethostbyname(hostname)
+
+        return render_template("index.html", hostname=hostname, ip=ip)
 
 @app.route("/send", methods=['POST'])
 def send():
