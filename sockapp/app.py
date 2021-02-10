@@ -2,8 +2,9 @@ from flask import Flask, json, request, render_template, jsonify
 import os
 import socket
 
-from .sender import send_file
+from . import __version__
 from .receiver import receive_file
+from .sender import send_file
 
 # Instantiate flask app
 app = Flask(__name__)
@@ -22,7 +23,7 @@ def index():
         hostname = socket.gethostname()
         ip = socket.gethostbyname(hostname)
 
-        return render_template("index.html", hostname=hostname, ip=ip, port=port)
+        return render_template("index.html", hostname=hostname, ip=ip, port=port, version=__version__)
 
 @app.route("/send", methods=['POST'])
 def send():
