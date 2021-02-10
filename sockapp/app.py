@@ -16,10 +16,12 @@ app.config["SESSION_TYPE"] = "filesystem"
 def index():
 
     if request.method == "GET":
+        port = app.config.get('port', 5001)
+
         hostname = socket.gethostname()
         ip = socket.gethostbyname(hostname)
 
-        return render_template("index.html", hostname=hostname, ip=ip)
+        return render_template("index.html", hostname=hostname, ip=ip, port=port)
 
 @app.route("/send", methods=['POST'])
 def send():
