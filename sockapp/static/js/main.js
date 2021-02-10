@@ -12,8 +12,8 @@ $(document).ready(function() {
                 data: {"recv_ip": recv_ip, "send_path": send_path},
                 success: function(result) {
                     Swal.fire({
-                        icon: "success",
-                        title: "Success",
+                        icon: result.icon,
+                        title: result.title,
                         text: result.status,
                     });
                 }
@@ -35,8 +35,8 @@ $(document).ready(function() {
             dataType: "json",
             success: function(result) {
                 Swal.fire({
-                    icon: "success",
-                    title: "Success",
+                    icon: result.icon,
+                    title: result.title,
                     text: result.status,
                 });
                 $("#receive").removeClass("selected-button");

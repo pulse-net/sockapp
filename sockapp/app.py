@@ -1,4 +1,5 @@
-from flask import Flask, request, render_template, jsonify
+from flask import Flask, json, request, render_template, jsonify
+import os
 import socket
 
 from .sender import send_file
@@ -30,9 +31,12 @@ def send():
         recv_ip = request.form['recv_ip']
         send_path = request.form['send_path']
 
+        if not os.path.exists(send_path):
+            return jsonify({"icon": "error", "title": "Error", "text": f"Path {send_path} not found!"})
+
         send_file(filename=send_path, host=recv_ip)
 
-        return jsonify({"status": "File sent successfully!"})
+        return jsonify({"icon": "success", "title": "Success", "status": "File sent successfully!"})
 
 @app.route("/receive", methods=['POST'])
 def receive():
@@ -40,4 +44,4 @@ def receive():
     if request.method == "POST":
         receive_file()
 
-        return jsonify({"status": "File received successfully!"})
+        return jsonify({"icon": "success", "title": "Success", "status": "File received successfully!"})
