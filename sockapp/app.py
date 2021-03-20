@@ -5,6 +5,7 @@ import socket
 from . import __version__
 from .receiver import receive_file
 from .sender import send_file
+from .ip_helpers import get_ip
 
 # Instantiate flask app
 app = Flask(__name__)
@@ -21,7 +22,7 @@ def index():
         port = app.config.get('port', 5001)
 
         hostname = socket.gethostname()
-        ip = socket.gethostbyname(hostname)
+        ip = get_ip()
 
         return render_template("index.html", hostname=hostname, ip=ip, port=port, version=__version__)
 
