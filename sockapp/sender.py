@@ -14,7 +14,7 @@ def send_file(filename, host, port=5001):
     filesize = os.path.getsize(filename)
 
     # Create the client socket
-    s = socket.socket()
+    s = socket.socket(family=socket.AF_INET, type=socket.SOCK_STREAM)
     print(f"[+] Connecting to {host}:{port}")
     s.connect((host, port))
     print("[+] Connected.")

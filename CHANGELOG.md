@@ -15,3 +15,7 @@
 
 - Show own hostname and IP address.
 - Add option to change port from command line while running sockapp server.
+
+## 0.1-alpha-5
+
+- Add option to change between TCP/IP and UDP as protocol.

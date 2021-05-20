@@ -15,7 +15,7 @@ SEPARATOR = "<SEPARATOR>"
 def receive_file(port=5001):
     # Create the server socket
     # TCP socket
-    s = socket.socket()
+    s = socket.socket(family=socket.AF_INET, type=socket.SOCK_STREAM)
 
     # Bind the socket to our local address
     s.bind((SERVER_HOST, port))
