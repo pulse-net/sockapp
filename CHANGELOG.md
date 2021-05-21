@@ -19,3 +19,5 @@
 ## 0.1-alpha-5
 
 - Add option to change between TCP/IP and UDP as protocol.
+- Dynamic dispatch receivers and senders based on protocol.
+- Actually use the port passed by user in sockets.
