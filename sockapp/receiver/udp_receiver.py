@@ -24,8 +24,10 @@ class UDPReceiver:
 
         # Receive the file infos
         # Receive using client socket, not server socket
-        received = s.recvfrom(BUFFER_SIZE)
+        received = str(s.recvfrom(BUFFER_SIZE)[0])
         filename, filesize = received.split(SEPARATOR)
+        filename = filename[2:]
+        filesize = filesize[:-1]
 
         # Remove absolute path if there is
         filename = os.path.basename(filename)
@@ -39,9 +41,9 @@ class UDPReceiver:
         with open(filename, "wb") as f:
             while True:
                 # Read 1024 bytes from the socket (receive)
-                bytes_read = s.recvfrom(BUFFER_SIZE)
+                bytes_read = s.recvfrom(BUFFER_SIZE)[0]
 
-                if not bytes_read:    
+                if bytes_read.decode("UTF-8") == "<END>": 
                     # Nothing is received file transmitting is done
                     break
 
@@ -50,5 +52,3 @@ class UDPReceiver:
 
                 # Update the progress bar
                 progress.update(len(bytes_read))
-
-        
