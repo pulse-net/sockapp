@@ -21,3 +21,4 @@
 - Add option to change between TCP/IP and UDP as protocol.
 - Dynamic dispatch receivers and senders based on protocol.
 - Actually use the port passed by user in sockets.
+- UDP sockets are experimental and can have bugs (use at own risk).
