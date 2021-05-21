@@ -1,6 +1,8 @@
+from sockapp.receiver.udp_receiver import UDPReceiver
 from ..constants import *
 from ..utils import error
 from .tcp_receiver import TCPReceiver
+from .udp_receiver import UDPReceiver
 
 class Receiver:
     @staticmethod
@@ -8,6 +10,6 @@ class Receiver:
         if protocol == "TCP":
             return TCPReceiver(port=port)
         elif protocol == "UDP":
-            pass
+            return UDPReceiver(port=port)
         else:
             raise error.InvalidSocketProtocol(message=f"Protocol {protocol} not known, cannot create receiver instance!")
