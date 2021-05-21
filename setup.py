@@ -29,9 +29,7 @@ def get_version(rel_path):
 setup(
     name="sockapp",
     version=get_version("sockapp/__init__.py"),
-    description=(
-        "Simple flask webapp for sending files over network using socket"
-    ),
+    description=("Simple flask webapp for sending files over network using socket"),
     long_description=README,
     long_description_content_type="text/markdown",
     url="https://github.com/frankhart2018/sockapp",
@@ -56,10 +54,6 @@ setup(
             "templates/index.html",
         ]
     },
-    entry_points={
-        'console_scripts': [
-            'sockapp = sockapp.run_app:run_app'
-        ]
-    },
+    entry_points={"console_scripts": ["sockapp = sockapp.run_app:run_app"]},
     install_requires=["tqdm", "flask"],
 )

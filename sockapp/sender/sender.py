@@ -4,6 +4,7 @@ from ..utils import error
 from .tcp_sender import TCPSender
 from .udp_sender import UDPSender
 
+
 class Sender:
     @staticmethod
     def get_sender(filename, host, port=PORT, protocol=PROTOCOL):
@@ -12,4 +13,6 @@ class Sender:
         elif protocol == "UDP":
             return UDPSender(filename=filename, host=host, port=port)
         else:
-            raise error.InvalidSocketProtocol(message=f"Protocol {protocol} not known, cannot create sender instance!")
+            raise error.InvalidSocketProtocol(
+                message=f"Protocol {protocol} not known, cannot create sender instance!"
+            )

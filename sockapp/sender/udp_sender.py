@@ -7,6 +7,7 @@ import os
 
 from ..constants import *
 
+
 class UDPSender:
     def __init__(self, filename, host, port=PORT):
         self.__filename = filename
@@ -17,7 +18,7 @@ class UDPSender:
         # Get the file size
         filesize = os.path.getsize(self.__filename)
 
-        # Create the client TCP socket
+        # Create the client UDP socket
         s = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 
         # Address to send to
@@ -27,7 +28,13 @@ class UDPSender:
         s.sendto(f"{self.__filename}{SEPARATOR}{filesize}".encode(), addr)
 
         # Start sending the file
-        progress = tqdm.tqdm(range(filesize), f"Sending {self.__filename}", unit="B", unit_scale=True, unit_divisor=1024)
+        progress = tqdm.tqdm(
+            range(filesize),
+            f"Sending {self.__filename}",
+            unit="B",
+            unit_scale=True,
+            unit_divisor=1024,
+        )
         with open(self.__filename, "rb") as f:
             while True:
                 # Read the bytes from the file
@@ -42,4 +49,4 @@ class UDPSender:
                 # Update the progress bar
                 progress.update(len(bytes_read))
 
-        s.sendto(bytes(END_DATA, encoding='utf-8'), addr)
+        s.sendto(bytes(END_DATA, encoding="utf-8"), addr)

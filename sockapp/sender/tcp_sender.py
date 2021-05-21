@@ -7,6 +7,7 @@ import os
 
 from ..constants import *
 
+
 class TCPSender:
     def __init__(self, filename, host, port=PORT):
         self.__filename = filename
@@ -28,7 +29,13 @@ class TCPSender:
         s.send(f"{self.__filename}{SEPARATOR}{filesize}".encode())
 
         # Start sending the file
-        progress = tqdm.tqdm(range(filesize), f"Sending {self.__filename}", unit="B", unit_scale=True, unit_divisor=1024)
+        progress = tqdm.tqdm(
+            range(filesize),
+            f"Sending {self.__filename}",
+            unit="B",
+            unit_scale=True,
+            unit_divisor=1024,
+        )
         with open(self.__filename, "rb") as f:
             while True:
                 # Read the bytes from the file

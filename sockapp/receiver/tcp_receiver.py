@@ -7,6 +7,7 @@ import os
 
 from ..constants import *
 
+
 class TCPReceiver:
     def __init__(self, port=PORT):
         self.__port = port
@@ -26,11 +27,11 @@ class TCPReceiver:
         print(f"[*] Listening as {SERVER_HOST}:{self.__port}")
 
         # Accept connection if there is any
-        client_socket, address = s.accept() 
+        client_socket, address = s.accept()
 
         # If below code is executed, that means the sender is connected
         print(f"[+] {address} is connected.")
-    
+
         # Receive the file infos
         # Receive using client socket, not server socket
         received = client_socket.recv(BUFFER_SIZE).decode()
@@ -43,14 +44,20 @@ class TCPReceiver:
         filesize = int(filesize)
 
         # Start receiving the file from the socket and writing to the file stream
-        progress = tqdm.tqdm(range(filesize), f"Receiving {filename}", unit="B", unit_scale=True, unit_divisor=1024)
+        progress = tqdm.tqdm(
+            range(filesize),
+            f"Receiving {filename}",
+            unit="B",
+            unit_scale=True,
+            unit_divisor=1024,
+        )
 
         with open(filename, "wb") as f:
             while True:
                 # Read 1024 bytes from the socket (receive)
                 bytes_read = client_socket.recv(BUFFER_SIZE)
 
-                if not bytes_read:    
+                if not bytes_read:
                     # Nothing is received file transmitting is done
                     break
 

@@ -7,13 +7,14 @@ import os
 
 from ..constants import *
 
+
 class UDPReceiver:
     def __init__(self, port=PORT):
         self.__port = port
 
     def receive_file(self):
         # Create the server socket
-        # TCP socket
+        # UDP socket
         s = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 
         # Bind the socket to our local address
@@ -36,14 +37,20 @@ class UDPReceiver:
         filesize = int(filesize)
 
         # Start receiving the file from the socket and writing to the file stream
-        progress = tqdm.tqdm(range(filesize), f"Receiving {filename}", unit="B", unit_scale=True, unit_divisor=1024)
+        progress = tqdm.tqdm(
+            range(filesize),
+            f"Receiving {filename}",
+            unit="B",
+            unit_scale=True,
+            unit_divisor=1024,
+        )
 
         with open(filename, "wb") as f:
             while True:
                 # Read 1024 bytes from the socket (receive)
                 bytes_read = s.recvfrom(BUFFER_SIZE)[0]
 
-                if bytes_read.decode("UTF-8") == "<END>": 
+                if bytes_read.decode("UTF-8") == "<END>":
                     # Nothing is received file transmitting is done
                     break
 
