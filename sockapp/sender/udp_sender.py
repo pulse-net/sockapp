@@ -41,3 +41,5 @@ class UDPSender:
 
                 # Update the progress bar
                 progress.update(len(bytes_read))
+
+        s.sendto(bytes(END_DATA, encoding='utf-8'), addr)

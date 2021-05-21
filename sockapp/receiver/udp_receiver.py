@@ -43,7 +43,7 @@ class UDPReceiver:
                 # Read 1024 bytes from the socket (receive)
                 bytes_read = s.recvfrom(BUFFER_SIZE)[0]
 
-                if bytes_read.decode("UTF-8") == "<END>":    
+                if bytes_read.decode("UTF-8") == "<END>": 
                     # Nothing is received file transmitting is done
                     break
 
