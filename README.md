@@ -22,6 +22,14 @@ user@programmer~:$ sockapp
 user@programmer~:$ sockapp --port 12345
 ```
 
+2.2. To run sockapp using a different protocol (default = TCP), pass it as a command line argument:-
+
+```bash
+user@programmer~:$ sockapp --protocol UDP
+```
+
+**Note**:- If you want to  use TCP you can mention it using this command line arugment but since it is the default value, passing TCP is optional.
+
 3. From sender enter IP address of receiver and file path to be sent.
 
 4. From receiver accept the connection by pressing the receive button.
