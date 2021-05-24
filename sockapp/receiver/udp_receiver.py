@@ -59,3 +59,5 @@ class UDPReceiver:
 
                 # Update the progress bar
                 progress.update(len(bytes_read))
+
+        return filename

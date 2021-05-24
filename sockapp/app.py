@@ -4,6 +4,7 @@ import socket
 
 from . import __version__
 from .ip_helpers import get_ip
+from .file_dir_helpers import get_file_dir_path, untar_tarball
 from .constants import *
 from .receiver.receiver import Receiver
 from .sender.sender import Sender
@@ -66,10 +67,14 @@ def send():
                 }
             )
 
+        file_path, is_dir = get_file_dir_path(path=send_path)
         sender = Sender.get_sender(
-            filename=send_path, host=recv_ip, port=port, protocol=protocol
+            filename=file_path, host=recv_ip, port=port, protocol=protocol
         )
         sender.send_file()
+
+        if is_dir:
+            os.remove(file_path)        
 
         return jsonify(
             {"icon": "success", "title": "Success", "status": "File sent successfully!"}
@@ -84,7 +89,10 @@ def receive():
         protocol = app.config.get("protocol", PROTOCOL)
 
         receiver = Receiver.get_receiver(port=port, protocol=protocol)
-        receiver.receive_file()
+        filename = receiver.receive_file()
+
+        if filename.endswith(".tar.gz"):
+            untar_tarball(tarball_path=filename)
 
         return jsonify(
             {
