@@ -22,3 +22,10 @@
 - Dynamic dispatch receivers and senders based on protocol.
 - Actually use the port passed by user in sockets.
 - UDP sockets are experimental and can have bugs (use at own risk).
+
+# 0.1-alpha-6
+
+- Check if receiver's IP is equal to sender's IP while sending file.
+- Send a directory without having to compress it explicitly.
+- Fix window's style path error.
+- Allow sending messages instead of files too.
