@@ -72,3 +72,5 @@ class TCPReceiver:
 
         # Close the server socket
         s.close()
+
+        return filename

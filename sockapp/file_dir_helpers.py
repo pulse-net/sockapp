@@ -19,3 +19,12 @@ def get_file_dir_path(path):
         path = tar_dir(dir_path=path)
 
     return path
+
+def untar_tarball(tarball_path):
+    dir_name = os.path.basename(tarball_path)
+    dir_name = dir_name.replace(".tar.gz", "")
+
+    with tarfile.open(tarball_path) as tar_file:
+        tar_file.extractall()
+
+    os.remove(tarball_path)
