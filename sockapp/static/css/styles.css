@@ -36,3 +36,29 @@
     background: black;
     color: white;
 }
+
+body {
+    margin: 0 auto;
+}
+
+#nav {
+    width: 100%;
+    background-color: lightgray;
+    margin-bottom: 10px;
+}
+
+.nav-buttons {
+    background: none;
+    border: none;
+    outline: none;
+    font-size: 100%;
+    padding: 10px;
+    height: 100%;
+}
+
+.selected-nav-button {
+    background: white;
+    color: black;
+    font-weight: bold;
+    border: 1px solid black;
+}
