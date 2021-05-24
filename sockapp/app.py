@@ -46,6 +46,17 @@ def send():
         port = int(app.config.get("port", PORT))
         protocol = app.config.get("protocol", PROTOCOL)
 
+        sender_ip = get_ip()
+
+        if(sender_ip == recv_ip):
+            return jsonify(
+                {
+                    "icon": "error",
+                    "title": "Error",
+                    "status": f"{sender_ip} is this system's IP, provide receiver's IP!",
+                }
+            )
+
         if not os.path.exists(send_path):
             return jsonify(
                 {
