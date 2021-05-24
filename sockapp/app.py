@@ -67,11 +67,14 @@ def send():
                 }
             )
 
-        file_path = get_file_dir_path(path=send_path)
+        file_path, is_dir = get_file_dir_path(path=send_path)
         sender = Sender.get_sender(
             filename=file_path, host=recv_ip, port=port, protocol=protocol
         )
         sender.send_file()
+
+        if is_dir:
+            os.remove(file_path)        
 
         return jsonify(
             {"icon": "success", "title": "Success", "status": "File sent successfully!"}
