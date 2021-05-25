@@ -15,7 +15,6 @@ class TCPMessageSender:
         self.__port = port
 
     def send_message(self):
-
         # Create the client TCP socket
         s = socket.socket(family=socket.AF_INET, type=socket.SOCK_STREAM)
 

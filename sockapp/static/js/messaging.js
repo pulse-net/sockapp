@@ -28,4 +28,22 @@ $(document).ready(function() {
             });
         }
     });
+
+    $("#receive").click(function() {
+        $("#receive").addClass("selected-button");
+        $.ajax({
+            url: "/receive-message",
+            type: "post",
+            dataType: "json",
+            success: function(result) {
+                Swal.fire({
+                    icon: result.icon,
+                    title: result.title,
+                    text: result.status,
+                });
+                $("#receive").removeClass("selected-button");
+                $("#recvd_msg").html(result.message);
+            }
+        });
+    });
 });

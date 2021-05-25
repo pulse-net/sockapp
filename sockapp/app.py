@@ -148,3 +148,22 @@ def receive():
                 "status": "File received successfully!",
             }
         )
+
+@app.route("/receive-message", methods=["POST"])
+def receive_message():
+
+    if request.method == "POST":
+        port = int(app.config.get("port", PORT))
+        protocol = app.config.get("protocol", PROTOCOL)
+
+        receiver = Receiver.get_receiver(port=port, protocol=protocol, is_message=True)
+        message = receiver.receive_message()
+
+        return jsonify(
+            {
+                "icon": "success",
+                "title": "Success",
+                "status": "File received successfully!",
+                "message": message
+            }
+        )

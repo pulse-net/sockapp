@@ -8,7 +8,7 @@ import os
 from ..constants import *
 
 
-class UDPReceiver:
+class UDPFileReceiver:
     def __init__(self, port=PORT):
         self.__port = port
 
