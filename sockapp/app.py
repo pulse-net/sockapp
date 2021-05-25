@@ -120,7 +120,7 @@ def send_message():
             )
             
         sender = Sender.get_sender(
-            filename=send_msg, host=recv_ip, port=port, protocol=protocol
+            message=send_msg, host=recv_ip, port=port, protocol=protocol
         )
         sender.send_message()     
 

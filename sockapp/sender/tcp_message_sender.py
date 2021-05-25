@@ -15,18 +15,12 @@ class TCPMessageSender:
         self.__port = port
 
     def send_message(self):
-        # Get the message size
-        messagesize = len(self.__message)
-
         # Create the client TCP socket
         s = socket.socket(family=socket.AF_INET, type=socket.SOCK_STREAM)
 
         print(f"[+] Connecting to {self.__host}:{self.__port}")
         s.connect((self.__host, self.__port))
         print("[+] Connected.")
-
-        # Send the message size
-        s.send(f"{SEPARATOR}{messagesize}".encode())
 
         # Send the message
         s.send(self.__message.encode())

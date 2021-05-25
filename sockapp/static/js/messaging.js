@@ -4,9 +4,9 @@ $(document).ready(function() {
 
     $("#send").click(function() {
         var recv_ip = $("#recv_ip").val();
-        var send_path = $("#send_msg").val();
+        var send_msg = $("#send_msg").val();
 
-        if(recv_ip && send_path) {
+        if(recv_ip && send_msg) {
             $.ajax({
                 url: "/send-message",
                 type: "post",
