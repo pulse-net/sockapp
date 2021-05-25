@@ -1,4 +1,7 @@
 $(document).ready(function() {
+
+    $("#send-file-nav").addClass("selected-nav-button");
+    $("#send-message-nav").removeClass("selected-nav-button");
     
     $("#send").click(function() {
         var recv_ip = $("#recv_ip").val();

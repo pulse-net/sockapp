@@ -37,6 +37,25 @@ def index():
             version=__version__,
         )
 
+@app.route("/messaging", methods=["GET"])
+def messaging():
+
+    if request.method == "GET":
+        port = app.config.get("port", PORT)
+        protocol = app.config.get("protocol", PROTOCOL)
+
+        hostname = socket.gethostname()
+        ip = get_ip()
+
+        return render_template(
+            "messaging.html",
+            hostname=hostname,
+            ip=ip,
+            port=port,
+            protocol=protocol,
+            version=__version__,
+        )
+
 
 @app.route("/send", methods=["POST"])
 def send():

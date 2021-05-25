@@ -28,4 +28,4 @@
 - Check if receiver's IP is equal to sender's IP while sending file.
 - Send a directory without having to compress it explicitly.
 - Fix window's style path error.
-- Allow sending messages instead of files too.
+- Allow sending messages instead of files too (Experimental, will be improved in future).
