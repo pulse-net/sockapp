@@ -1,17 +1,25 @@
-from sockapp.sender.udp_sender import UDPSender
 from ..constants import *
 from ..utils import error
-from .tcp_sender import TCPSender
-from .udp_sender import UDPSender
+from .tcp_file_sender import TCPFileSender
+from .tcp_message_sender import TCPMessageSender
+from .udp_file_sender import UDPFileSender
 
 
 class Sender:
     @staticmethod
-    def get_sender(filename, host, port=PORT, protocol=PROTOCOL):
+    def get_sender(host, message=None, filename=None, port=PORT, protocol=PROTOCOL):
         if protocol == "TCP":
-            return TCPSender(filename=filename, host=host, port=port)
+            if filename != None:
+                return TCPFileSender(filename=filename, host=host, port=port)
+
+            return TCPMessageSender(message=message, host=host, port=port)
         elif protocol == "UDP":
-            return UDPSender(filename=filename, host=host, port=port)
+            if filename != None:
+                return UDPFileSender(filename=filename, host=host, port=port)
+
+            raise error.OperationNotSupported(
+                message="Messaging is available in TCP only, UDP support for messaging will be added in future version!"
+            )
         else:
             raise error.InvalidSocketProtocol(
                 message=f"Protocol {protocol} not known, cannot create sender instance!"

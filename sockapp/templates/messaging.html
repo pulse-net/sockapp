@@ -23,7 +23,7 @@
                 <input type="text" id="recv_ip" class="inp" placeholder="Receiver's IP">
             </p>
             <p>
-                <input type="text" id="send_path" class="inp" placeholder="Path to file/directory (relative/absolute)"> 
+                <input type="text" id="send_msg" class="inp" placeholder="Message"> 
             </p>
             <p>
                 <input type="button" id="send" class="button" value="Send">
@@ -32,6 +32,7 @@
         <br><br>
         <div class="send">
             <h1 class="header">Receive</h2>
+            <p id="recvd_msg"></p>
             <p>
                 <input type="button" id="receive" class="button" value="Receive">
             </p>
@@ -39,7 +40,7 @@
 
         <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/sweetalert.min.js') }}"></script>
-        <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <script type="text/javascript" src="{{ url_for('static', filename='js/messaging.js') }}"></script>
         <script type="text/javascript" src="{{ url_for('static', filename='js/nav.js') }}"></script>
     </body>
 </html>
