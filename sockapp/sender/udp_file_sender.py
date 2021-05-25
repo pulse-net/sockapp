@@ -8,7 +8,7 @@ import os
 from ..constants import *
 
 
-class TCPSender:
+class UDPFileSender:
     def __init__(self, filename, host, port=PORT):
         self.__filename = filename
         self.__host = host
@@ -18,15 +18,14 @@ class TCPSender:
         # Get the file size
         filesize = os.path.getsize(self.__filename)
 
-        # Create the client TCP socket
-        s = socket.socket(family=socket.AF_INET, type=socket.SOCK_STREAM)
+        # Create the client UDP socket
+        s = socket.socket(family=socket.AF_INET, type=socket.SOCK_DGRAM)
 
-        print(f"[+] Connecting to {self.__host}:{self.__port}")
-        s.connect((self.__host, self.__port))
-        print("[+] Connected.")
+        # Address to send to
+        addr = (self.__host, self.__port)
 
         # Send the filename and filesize
-        s.send(f"{self.__filename}{SEPARATOR}{filesize}".encode())
+        s.sendto(f"{self.__filename}{SEPARATOR}{filesize}".encode(), addr)
 
         # Start sending the file
         progress = tqdm.tqdm(
@@ -45,10 +44,9 @@ class TCPSender:
                     break
 
                 # We use sendall to assure transimission in busy networks
-                s.sendall(bytes_read)
+                s.sendto(bytes_read, addr)
 
                 # Update the progress bar
                 progress.update(len(bytes_read))
 
-        # Close the socket
-        s.close()
+        s.sendto(bytes(END_DATA, encoding="utf-8"), addr)

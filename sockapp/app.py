@@ -99,6 +99,34 @@ def send():
             {"icon": "success", "title": "Success", "status": "File sent successfully!"}
         )
 
+@app.route("/send-message", methods=["POST"])
+def send_message():
+
+    if request.method == "POST":
+        recv_ip = request.form["recv_ip"]
+        send_msg = request.form["send_msg"]
+        port = int(app.config.get("port", PORT))
+        protocol = app.config.get("protocol", PROTOCOL)
+
+        sender_ip = get_ip()
+
+        if(sender_ip == recv_ip):
+            return jsonify(
+                {
+                    "icon": "error",
+                    "title": "Error",
+                    "status": f"{sender_ip} is this system's IP, provide receiver's IP!",
+                }
+            )
+            
+        sender = Sender.get_sender(
+            filename=send_msg, host=recv_ip, port=port, protocol=protocol
+        )
+        sender.send_message()     
+
+        return jsonify(
+            {"icon": "success", "title": "Success", "status": "Message sent successfully!"}
+        )
 
 @app.route("/receive", methods=["POST"])
 def receive():
@@ -118,5 +146,24 @@ def receive():
                 "icon": "success",
                 "title": "Success",
                 "status": "File received successfully!",
+            }
+        )
+
+@app.route("/receive-message", methods=["POST"])
+def receive_message():
+
+    if request.method == "POST":
+        port = int(app.config.get("port", PORT))
+        protocol = app.config.get("protocol", PROTOCOL)
+
+        receiver = Receiver.get_receiver(port=port, protocol=protocol, is_message=True)
+        message = receiver.receive_message()
+
+        return jsonify(
+            {
+                "icon": "success",
+                "title": "Success",
+                "status": "File received successfully!",
+                "message": message
             }
         )
