@@ -15,6 +15,9 @@ def tar_dir(dir_path):
 
 def get_file_dir_path(path):
     is_dir = False
+    
+    if(path[-1] == "/"):
+        path = path[:-1]
 
     if os.path.isdir(path):
         is_dir = True

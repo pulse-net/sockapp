@@ -5,6 +5,7 @@ import socket
 from . import __version__
 from .utils.ip_helpers import get_ip
 from .utils.file_dir_helpers import get_file_dir_path, untar_tarball
+from .utils.path_helpers import parse_path
 from .constants import *
 from .receiver.receiver import Receiver
 from .sender.sender import Sender
@@ -67,6 +68,10 @@ def send():
         protocol = app.config.get("protocol", PROTOCOL)
 
         sender_ip = get_ip()
+
+        send_path = parse_path(path=send_path)
+
+        print(send_path)
 
         if(sender_ip == recv_ip):
             return jsonify(
