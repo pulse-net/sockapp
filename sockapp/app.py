@@ -3,8 +3,8 @@ import os
 import socket
 
 from . import __version__
-from .ip_helpers import get_ip
-from .file_dir_helpers import get_file_dir_path, untar_tarball
+from .utils.ip_helpers import get_ip
+from .utils.file_dir_helpers import get_file_dir_path, untar_tarball
 from .constants import *
 from .receiver.receiver import Receiver
 from .sender.sender import Sender
