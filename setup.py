@@ -49,9 +49,13 @@ setup(
         "sockapp": [
             "static/css/styles.css",
             "static/js/main.js",
+            "static/js/messaging.js",
+            "static/js/nav.js",
             "static/js/jquery.min.js",
             "static/js/sweetalert.min.js",
             "templates/index.html",
+            "templates/messaging.html",
+            "templates/nav.html",
         ]
     },
     entry_points={"console_scripts": ["sockapp = sockapp.run_app:run_app"]},
