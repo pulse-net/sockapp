@@ -27,8 +27,10 @@ class TCPFileSender:
 
         try:
             s.connect((self.__host, self.__port))
-        except Exception as e:
-            raise ConnectionFailure("Connection timed out")
+        except socket.timeout:
+            raise ConnectionFailure("Connection timed out, make sure the receiver is in same network!")
+        except ConnectionRefusedError:
+            raise ConnectionFailure("Connection refused by receiver, make sure you have pressed receive in receiver!")
 
         s.settimeout(None)
         print("[+] Connected.")
