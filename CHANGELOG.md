@@ -29,3 +29,9 @@
 - Send a directory without having to compress it explicitly.
 - Fix window's style path error.
 - Allow sending messages instead of files too (Experimental, will be improved in future) - only using TCP.
+
+# 0.1-alpha-7
+
+- Throw error message to front end when sender fails to connect to receiver.
+- Add option to start at a given directory so file paths can be specified relative to that in sender or can be downloaded in that in receiver.
+- Move all command line options to front end.
