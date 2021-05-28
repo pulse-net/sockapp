@@ -7,15 +7,9 @@
     </head>
 
     <body>
-        {% include 'nav.html' %}
+        {% include 'components/nav.html' %}
 
-        <div class="send"> 
-            <h1 class="header">Your information</h1>
-            <p><strong>Host name</strong>: {{hostname}}</p>
-            <p><strong>IP Address</strong>: {{ip}}</p>
-            <p><strong>Port</strong>: {{port}}</p>
-            <p><strong>Protocol</strong>: {{protocol}}</p>
-        </div>
+        {% include 'components/info.html' %}
         <br><br>
         <div class="send">
             <h1 class="header">Send</h2>
