@@ -8,3 +8,6 @@ SERVER_HOST = "0.0.0.0"
 BUFFER_SIZE = 4096
 SEPARATOR = "<SEPARATOR>"
 END_DATA = "<END>"
+
+# Max timeout while connecting to receiver
+MAX_TIMEOUT = 3

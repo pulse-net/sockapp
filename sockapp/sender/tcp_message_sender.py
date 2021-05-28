@@ -6,6 +6,7 @@ import tqdm
 import os
 
 from ..constants import *
+from ..utils.error import ConnectionFailure
 
 
 class TCPMessageSender:
@@ -19,7 +20,14 @@ class TCPMessageSender:
         s = socket.socket(family=socket.AF_INET, type=socket.SOCK_STREAM)
 
         print(f"[+] Connecting to {self.__host}:{self.__port}")
-        s.connect((self.__host, self.__port))
+        s.settimeout(MAX_TIMEOUT)
+
+        try:
+            s.connect((self.__host, self.__port))
+        except Exception as e:
+            raise ConnectionFailure("Connection timed out")
+
+        s.settimeout(None)
         print("[+] Connected.")
 
         # Send the message
