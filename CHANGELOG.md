@@ -33,5 +33,7 @@
 # 0.1-alpha-7
 
 - Throw error message to front end when sender fails to connect to receiver.
+- Add please wait after pressing send/receive to let user know that some processing is going on.
+- Add connection refused error (occurs when the receiver is in network but user hasn't pressed receive on their side).
 - Add option to start at a given directory so file paths can be specified relative to that in sender or can be downloaded in that in receiver.
 - Move all command line options to front end.
