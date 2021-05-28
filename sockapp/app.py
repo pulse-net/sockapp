@@ -36,6 +36,7 @@ def index():
             ip=ip,
             port=port,
             protocol=protocol,
+            current_directory=os.getcwd(),
             version=__version__,
         )
 
@@ -55,6 +56,7 @@ def messaging():
             ip=ip,
             port=port,
             protocol=protocol,
+            current_directory=os.getcwd(),
             version=__version__,
         )
 

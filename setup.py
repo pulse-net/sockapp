@@ -55,7 +55,8 @@ setup(
             "static/js/sweetalert.min.js",
             "templates/index.html",
             "templates/messaging.html",
-            "templates/nav.html",
+            "templates/components/nav.html",
+            "templates/components/info.html",
         ]
     },
     entry_points={"console_scripts": ["sockapp = sockapp.run_app:run_app"]},
