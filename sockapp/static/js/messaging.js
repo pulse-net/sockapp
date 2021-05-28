@@ -6,6 +6,12 @@ $(document).ready(function() {
         var recv_ip = $("#recv_ip").val();
         var send_msg = $("#send_msg").val();
 
+        Swal.fire({
+            icon: "info",
+            title: "Please wait...",
+            text: "Sending message to receiver!"
+        });
+
         if(recv_ip && send_msg) {
             $.ajax({
                 url: "/send-message",
@@ -13,6 +19,7 @@ $(document).ready(function() {
                 dataType: "json",
                 data: {"recv_ip": recv_ip, "send_msg": send_msg},
                 success: function(result) {
+                    window.swal.close();
                     Swal.fire({
                         icon: result.icon,
                         title: result.title,
@@ -31,11 +38,19 @@ $(document).ready(function() {
 
     $("#receive").click(function() {
         $("#receive").addClass("selected-button");
+
+        Swal.fire({
+            icon: "info",
+            title: "Please wait...",
+            text: "Receiving message from sender!"
+        });
+
         $.ajax({
             url: "/receive-message",
             type: "post",
             dataType: "json",
             success: function(result) {
+                window.swal.close();
                 Swal.fire({
                     icon: result.icon,
                     title: result.title,
