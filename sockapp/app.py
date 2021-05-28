@@ -102,7 +102,7 @@ def send():
                 {
                     "icon": "error",
                     "title": "Error",
-                    "status": f"Connection timed out, could not connect to receiver!",
+                    "status": e.message,
                 }
             )
 
@@ -144,7 +144,7 @@ def send_message():
                 {
                     "icon": "error",
                     "title": "Error",
-                    "status": f"Connection timed out, could not connect to receiver!",
+                    "status": e.message,
                 }
             )
 
