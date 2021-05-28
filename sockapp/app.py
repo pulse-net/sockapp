@@ -9,6 +9,7 @@ from .utils.path_helpers import parse_path
 from .constants import *
 from .receiver.receiver import Receiver
 from .sender.sender import Sender
+from .utils.error import ConnectionFailure
 
 # Instantiate flask app
 app = Flask(__name__)
@@ -71,8 +72,6 @@ def send():
 
         send_path = parse_path(path=send_path)
 
-        print(send_path)
-
         if(sender_ip == recv_ip):
             return jsonify(
                 {
@@ -95,7 +94,17 @@ def send():
         sender = Sender.get_sender(
             filename=file_path, host=recv_ip, port=port, protocol=protocol
         )
-        sender.send_file()
+
+        try:
+            sender.send_file()
+        except ConnectionFailure as e:
+            return jsonify(
+                {
+                    "icon": "error",
+                    "title": "Error",
+                    "status": f"Connection timed out, could not connect to receiver!",
+                }
+            )
 
         if is_dir:
             os.remove(file_path)        
@@ -127,7 +136,17 @@ def send_message():
         sender = Sender.get_sender(
             message=send_msg, host=recv_ip, port=port, protocol=protocol
         )
-        sender.send_message()     
+        
+        try:
+            sender.send_message()
+        except ConnectionFailure as e:
+            return jsonify(
+                {
+                    "icon": "error",
+                    "title": "Error",
+                    "status": f"Connection timed out, could not connect to receiver!",
+                }
+            )
 
         return jsonify(
             {"icon": "success", "title": "Success", "status": "Message sent successfully!"}
