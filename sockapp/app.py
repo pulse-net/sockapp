@@ -6,7 +6,7 @@ from . import __version__
 from .utils.ip_helpers import get_ip
 from .utils.file_dir_helpers import get_file_dir_path, untar_tarball
 from .utils.path_helpers import parse_path
-from .constants import *
+from sockx.constants import *
 from sockx.receiver import Receiver
 from sockx.sender import Sender
 from sockx.utils.error import ConnectionFailure
