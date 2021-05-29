@@ -32,7 +32,7 @@ setup(
     description=("Simple flask webapp for sending files over network using socket."),
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/frankhart2018/sockapp",
+    url="https://github.com/pulse-net/sockapp",
     author="Siddhartha Dhar Choudhury",
     author_email="sdharchou@gmail.com",
     license="MIT",
