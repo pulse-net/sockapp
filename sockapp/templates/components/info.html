@@ -1,8 +1,9 @@
 <div class="send"> 
-    <h1 class="header">Your information</h1>
+    <p><input type="button" class="button" id="edit" value="Edit" style="float: right;">
+    <h1 class="header">Your information</h1></p>
     <p><strong>Host name</strong>: {{hostname}}</p>
     <p><strong>IP Address</strong>: {{ip}}</p>
-    <p><strong>Port</strong>: {{port}}</p>
-    <p><strong>Protocol</strong>: {{protocol}}</p>
-    <p><strong>Current Directory</strong>: {{current_directory}}</p>
+    <p><strong>Port</strong>: <span id="port-span">{{port}}</span></p>
+    <p><strong>Protocol</strong>: <span id="protocol-span">{{protocol}}</span></p>
+    <p><strong>Working Directory</strong>: <span id="cur-dir-span">{{current_directory}}</span></p>
 </div>
