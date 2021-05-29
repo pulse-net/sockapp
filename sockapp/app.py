@@ -193,3 +193,23 @@ def receive_message():
                 "message": message
             }
         )
+
+@app.route("/update-args", methods=["POST"])
+def update_args():
+
+    if request.method == "POST":
+        port = request.form['port']
+        protocol = request.form['protocol']
+        cur_dir = request.form['cur_dir']
+
+        app.config['port'] = port
+        app.config['protocol'] = protocol
+        os.chdir(cur_dir)
+
+        return jsonify(
+            {
+                "icon": "success",
+                "title": "Success",
+                "status": "Information updated successfully!",
+            }
+        )
