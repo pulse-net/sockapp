@@ -38,3 +38,5 @@
 - Add option to start at a given directory so file paths can be specified relative to that in sender or can be downloaded in that in receiver.
 - Move all command line options to front end.
 - Separate information div to its own template.
+- Add debug switch in app.
+- Add UDP messaging support.
