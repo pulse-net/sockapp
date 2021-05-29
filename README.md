@@ -1,6 +1,6 @@
 # SockApp
 
-Simple flask web app to send files between two computers using socket.
+Simple flask web app to transfer files and messages between two computers using socket. Uses <a href="https://github.com/pulse-net/sockx.git">SockX</a> to transfer files and messages.
 
 ## Steps to run
 
@@ -26,6 +26,12 @@ user@programmer~:$ sockapp --port 12345
 
 ```bash
 user@programmer~:$ sockapp --protocol UDP
+```
+
+2.3. To run sockapp from a different working directory, pass it as a command line argument:-
+
+```bash
+user@programmer~:$ sockapp --start_dir /home/user/sample-dir
 ```
 
 **Note**:- If you want to  use TCP you can mention it using this command line arugment but since it is the default value, passing TCP is optional.
