@@ -51,6 +51,7 @@ setup(
             "static/js/main.js",
             "static/js/messaging.js",
             "static/js/nav.js",
+            "static/js/info.js",
             "static/js/jquery.min.js",
             "static/js/sweetalert.min.js",
             "templates/index.html",
