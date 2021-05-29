@@ -7,9 +7,9 @@ from .utils.ip_helpers import get_ip
 from .utils.file_dir_helpers import get_file_dir_path, untar_tarball
 from .utils.path_helpers import parse_path
 from .constants import *
-from .receiver.receiver import Receiver
-from .sender.sender import Sender
-from .utils.error import ConnectionFailure
+from sockx.receiver import Receiver
+from sockx.sender import Sender
+from sockx.utils.error import ConnectionFailure
 
 # Instantiate flask app
 app = Flask(__name__)
