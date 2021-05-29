@@ -2,8 +2,6 @@
 Client that sends the message
 """
 import socket
-import tqdm
-import os
 
 from ..constants import *
 from ..utils.error import ConnectionFailure

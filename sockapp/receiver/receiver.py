@@ -3,6 +3,7 @@ from ..utils import error
 from .tcp_file_receiver import TCPFileReceiver
 from .tcp_message_receiver import TCPMessageReceiver
 from .udp_file_receiver import UDPFileReceiver
+from .udp_message_receiver import UDPMessageReceiver
 
 
 class Receiver:
@@ -17,9 +18,7 @@ class Receiver:
             if not is_message:
                 return UDPFileReceiver(port=port)
 
-            raise error.OperationNotSupported(
-                message="Messaging is available in TCP only, UDP support for messaging will be added in future version!"
-            )
+            return UDPMessageReceiver(port=port)
         else:
             raise error.InvalidSocketProtocol(
                 message=f"Protocol {protocol} not known, cannot create receiver instance!"
