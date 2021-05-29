@@ -2,8 +2,6 @@
 Server receiver of the file
 """
 import socket
-import tqdm
-import os
 
 from ..constants import *
 

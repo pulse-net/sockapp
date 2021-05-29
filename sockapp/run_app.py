@@ -20,10 +20,13 @@ def run_app():
     parser.add_argument(
         "--start_dir", default=os.getcwd(), help="Starting directory to send from or receive into"
     )
+    parser.add_argument(
+        "--debug", action="store_true", default=False, help="Start sockapp server in debug mode or not"
+    )
     args = parser.parse_args()
 
     os.chdir(args.start_dir)
 
     app.config["port"] = args.port
     app.config["protocol"] = args.protocol
-    app.run(debug=False)
+    app.run(debug=args.debug)
