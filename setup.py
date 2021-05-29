@@ -35,9 +35,9 @@ setup(
     url="https://github.com/frankhart2018/sockapp",
     author="Siddhartha Dhar Choudhury",
     author_email="sdharchou@gmail.com",
-    license="GNU General Public License v3",
+    license="MIT",
     classifiers=[
-        "License :: OSI Approved :: GNU General Public License v3 (GPLv3)",
+        "License :: OSI Approved :: MIT License",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.9",
         "Programming Language :: Python :: 3.8",

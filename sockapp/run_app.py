@@ -4,7 +4,7 @@ import webbrowser
 import os
 
 from .app import app
-from .constants import *
+from sockx.constants import *
 
 
 def run_app():
