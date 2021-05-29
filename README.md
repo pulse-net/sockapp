@@ -39,3 +39,7 @@ user@programmer~:$ sockapp --start_dir /home/user/sample-dir
 3. From sender enter IP address of receiver and file path to be sent.
 
 4. From receiver accept the connection by pressing the receive button.
+
+# License
+
+SockApp is licensed under <a href="https://github.com/pulse-net/sockapp/blob/master/LICENSE">MIT License</a>.
