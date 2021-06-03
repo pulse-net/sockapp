@@ -2,7 +2,7 @@ $(document).ready(function() {
 
     function get_input_html_tags(id, placeholder, span_id) {
         var current_value = $("#" + span_id).html();
-        return `<input type='text' id='${id}' class='inp' placeholder='${placeholder}' value='${current_value}'>`;
+        return `<input type='text' id='${id}' class='inputData' placeholder='${placeholder}' value='${current_value}'>`;
     }
 
     $("#edit").click(function() {
@@ -11,7 +11,7 @@ $(document).ready(function() {
         $("#edit").attr('value', new_value);
 
         if(current_value == "Edit") {
-            var protocol_select = "<select id='protocol-inp' class='inp'";
+            var protocol_select = "<select id='protocol-inp' class='inputData'";
 
             var current_protocol = $("#protocol-span").html();
             tcp_current_protocol = current_protocol == "TCP" ? "selected" : "";

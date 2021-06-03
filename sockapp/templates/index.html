@@ -7,28 +7,33 @@
     </head>
 
     <body>
-        {% include 'components/nav.html' %}
 
-        {% include 'components/info.html' %}
-        <br><br>
-        <div class="send">
-            <h1 class="header">Send</h2>
-            <p>
-                <input type="text" id="recv_ip" class="inp" placeholder="Receiver's IP">
-            </p>
-            <p>
-                <input type="text" id="send_path" class="inp" placeholder="Path to file/directory (relative/absolute)"> 
-            </p>
-            <p>
-                <input type="button" id="send" class="button" value="Send">
-            </p>
-        </div>
-        <br><br>
-        <div class="send">
-            <h1 class="header">Receive</h2>
-            <p>
-                <input type="button" id="receive" class="button" value="Receive">
-            </p>
+        <div class="container">
+
+            {% include 'components/nav.html' %}
+            <!--Navbar ends here-->
+            <main class="mainContent">
+    
+                <div class="info">
+                    {% include 'components/info.html' %}
+                    <div class="sendInfo">
+                        <div class="data">
+                            <h2>Send Information</h2><br>
+                            <input type="text" id="recv_ip" class="inputData" placeholder="Reciever's IP"><br>
+                            <input type="text" id="send_path" class="inputData" placeholder="Path to file/directory (relative/absolute)"><br>
+                        </div>
+                        <div class="sectionButton">
+                            <input type="button" id="send" class="button" value="Send">
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="receiveInfo">
+                    <input type="button" id="receive" class="button" value="Receive">
+                </div>
+    
+            </main>
+    
         </div>
 
         <script type="text/javascript" src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>

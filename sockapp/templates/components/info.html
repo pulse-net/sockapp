@@ -1,4 +1,4 @@
-<div class="send"> 
+<!-- <div class="send"> 
     <p><input type="button" class="button" id="edit" value="Edit" style="float: right;">
     <h1 class="header">Your information</h1></p>
     <p><strong>Host name</strong>: {{hostname}}</p>
@@ -6,4 +6,35 @@
     <p><strong>Port</strong>: <span id="port-span">{{port}}</span></p>
     <p><strong>Protocol</strong>: <span id="protocol-span">{{protocol}}</span></p>
     <p><strong>Working Directory</strong>: <span id="cur-dir-span">{{current_directory}}</span></p>
+</div> -->
+
+<div class="userInfo">
+    <div class="data">
+        <h2>User Information</h2><br>
+        <table>
+            <tr>
+                <td><strong>Host Name</strong></td>
+                <td id="dataCell">{{hostname}}</td>
+            </tr>
+            <tr>
+                <td><strong>IP Address</strong></td>
+                <td id="dataCell">{{ip}}</td>
+            </tr>
+            <tr>
+                <td><strong>Port</strong></td>
+                <td id="dataCell"><span id="port-span">{{port}}</span></td>
+            </tr>
+            <tr>
+                <td><strong>Protocol</strong></td>
+                <td id="dataCell"><span id="protocol-span">{{protocol}}</span></td>
+            </tr>
+            <tr>
+                <td><strong>Workin Directory</strong></td>
+                <td id="dataCell"><span id="cur-dir-span">{{current_directory}}</span></td>
+            </tr>
+        </table>
+    </div>
+    <div class="sectionButton">
+        <input type="button" class="button" id="edit" value="Edit">
+    </div>
 </div>
