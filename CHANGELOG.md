@@ -23,14 +23,14 @@
 - Actually use the port passed by user in sockets.
 - UDP sockets are experimental and can have bugs (use at own risk).
 
-# 0.1-alpha-6
+## 0.1-alpha-6
 
 - Check if receiver's IP is equal to sender's IP while sending file.
 - Send a directory without having to compress it explicitly.
 - Fix window's style path error.
 - Allow sending messages instead of files too (Experimental, will be improved in future) - only using TCP.
 
-# 0.1-alpha-7
+## 0.1-alpha-7
 
 - Throw error message to front end when sender fails to connect to receiver.
 - Add please wait after pressing send/receive to let user know that some processing is going on.
@@ -40,3 +40,7 @@
 - Separate information div to its own template.
 - Add debug switch in app.
 - Add UDP messaging support.
+
+## 0.1-alpha-8
+
+- Move all core functionality to <a href="https://github.com/pulse-net/sockx">SockX</a>.
