@@ -5,6 +5,8 @@ import os
 
 from .app import app
 from sockx.constants import *
+from .utils.file_dir_helpers import check_starting_directory
+from .utils.error import InvalidStartingDirectory
 
 
 def run_app():
@@ -24,6 +26,11 @@ def run_app():
         "--debug", action="store_true", default=False, help="Start sockapp server in debug mode or not"
     )
     args = parser.parse_args()
+
+    try:
+        check_starting_directory(dir_path=args.start_dir)
+    except InvalidStartingDirectory as e:
+        print(e.message)
 
     os.chdir(args.start_dir)
 

@@ -39,9 +39,9 @@ $(document).ready(function() {
                             icon: result.icon,
                             title: result.title,
                             text: result.status,
+                        }).then(function() {
+                            window.location.reload();
                         });
-
-                        window.location.reload();
                     }
                 });
             } else {

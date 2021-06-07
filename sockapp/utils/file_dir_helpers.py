@@ -1,5 +1,9 @@
 import os
 import tarfile
+from collections import namedtuple
+
+from .error import InvalidStartingDirectory
+
 
 def tar_dir(dir_path):
     base_path = os.path.dirname(dir_path)
@@ -33,3 +37,10 @@ def untar_tarball(tarball_path):
         tar_file.extractall()
 
     os.remove(tarball_path)
+
+def check_starting_directory(dir_path):
+    if not os.path.exists(dir_path):
+        raise InvalidStartingDirectory(message=f"Path {dir_path} does not exist!")
+
+    if not os.path.isdir(dir_path):
+        raise InvalidStartingDirectory(message=f"Path {dir_path} is not a directory!")

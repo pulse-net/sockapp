@@ -1,16 +1,18 @@
 from flask import Flask, json, request, render_template, jsonify
 import os
 import socket
-
-from . import __version__
-from .utils.ip_helpers import get_ip
-from .utils.file_dir_helpers import get_file_dir_path, untar_tarball
-from .utils.path_helpers import parse_path
 import sockx
 from sockx.constants import *
 from sockx.receiver import Receiver
 from sockx.sender import Sender
 from sockx.utils.error import ConnectionFailure
+
+from . import __version__
+from .utils.ip_helpers import get_ip
+from .utils.file_dir_helpers import get_file_dir_path, untar_tarball
+from .utils.path_helpers import parse_path
+from .utils.error import InvalidStartingDirectory
+from .utils.file_dir_helpers import check_starting_directory
 
 # Instantiate flask app
 app = Flask(__name__)
@@ -204,6 +206,17 @@ def update_args():
         port = request.form['port']
         protocol = request.form['protocol']
         cur_dir = request.form['cur_dir']
+
+        try:
+            check_starting_directory(dir_path=cur_dir)
+        except InvalidStartingDirectory as e:
+            return jsonify(
+                {
+                    "icon": "error",
+                    "title": "Error",
+                    "status": e.message,
+                }
+            )
 
         app.config['port'] = port
         app.config['protocol'] = protocol
