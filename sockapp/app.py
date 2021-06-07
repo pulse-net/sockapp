@@ -6,6 +6,7 @@ from . import __version__
 from .utils.ip_helpers import get_ip
 from .utils.file_dir_helpers import get_file_dir_path, untar_tarball
 from .utils.path_helpers import parse_path
+import sockx
 from sockx.constants import *
 from sockx.receiver import Receiver
 from sockx.sender import Sender
@@ -24,6 +25,8 @@ app.config["SESSION_TYPE"] = "filesystem"
 def index():
 
     if request.method == "GET":
+        print(f"Using SockX backend {sockx.__version__}")
+
         port = app.config.get("port", PORT)
         protocol = app.config.get("protocol", PROTOCOL)
 
@@ -94,11 +97,11 @@ def send():
 
         file_path, is_dir = get_file_dir_path(path=send_path)
         sender = Sender.get_sender(
-            filename=file_path, host=recv_ip, port=port, protocol=protocol
+            host=recv_ip, port=port, protocol=protocol
         )
 
         try:
-            sender.send_file()
+            sender.send_file(filename=file_path)
         except ConnectionFailure as e:
             return jsonify(
                 {
@@ -136,11 +139,11 @@ def send_message():
             )
             
         sender = Sender.get_sender(
-            message=send_msg, host=recv_ip, port=port, protocol=protocol
+            host=recv_ip, port=port, protocol=protocol, is_message=True
         )
         
         try:
-            sender.send_message()
+            sender.send_message(message=send_msg)
         except ConnectionFailure as e:
             return jsonify(
                 {
