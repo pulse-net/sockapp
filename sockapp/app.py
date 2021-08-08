@@ -99,7 +99,7 @@ def send():
 
         file_path, is_dir = get_file_dir_path(path=send_path)
         sender = Sender.get_sender(
-            host=recv_ip, port=port, protocol=protocol
+            receiver_ip=recv_ip, port=port, protocol=protocol
         )
 
         try:
@@ -141,7 +141,7 @@ def send_message():
             )
             
         sender = Sender.get_sender(
-            host=recv_ip, port=port, protocol=protocol, is_message=True
+            receiver_ip=recv_ip, port=port, protocol=protocol, is_message=True
         )
         
         try:
